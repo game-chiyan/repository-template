@@ -46,7 +46,9 @@ Forkではなく、GitHubのTemplate Repository機能を使用します。
 3. Owner、リポジトリ名、公開範囲を設定する
 4. `Include all branches` は選択しない
 5. `Create repository` を実行する
-6. 作成されたリポジトリをローカルへcloneする
+6. 作成されたリポジトリを `~\Projects\<プロジェクト>\<リポジトリ>\` へcloneする
+
+`01_Docs_Portal` は上記配置の `docs\` だけを検出するため、リポジトリをプロジェクトフォルダ直下に配置します。
 
 新しいリポジトリは `main` から開始し、その後 `develop` を派生させます。
 
@@ -120,4 +122,4 @@ npm run build
 
 - [GitHub: Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
 - [GitHub Pages: Using custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
-- [Docusaurus: Deploying to GitHub Pages](https://docusaurus.io/docs/next/deployment/github-pages)
+- [Docusaurus: Deploying to GitHub Pages](https://docusaurus.io/docs/deployment/github-pages)
