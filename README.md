@@ -78,15 +78,20 @@ https://<Owner>.github.io/<Repository>/
 ## ブランチ運用
 
 ```text
-feature/*
-  ↓
+feature/* / tool/*
+  ↓ PR作成→人間review／merge
 develop
-  ↓
+  ↓ PR作成→人間review／merge
 main
   ↓
 GitHub Pagesへ自動反映
 ```
 
+- Git実行モードは`human`／`ai-pr`の2種とし、標準は`ai-pr`とする
+- `ai-pr`ではAIがbranch／worktree作成、修正、検証、exact stage、commit、push、PR作成まで行い、人間が最終review／mergeを行う
+- `human`ではAIが計画・exact command・read-only事後照合を行い、人間が状態変更Gitを行う
+- 混在checkoutの保護や並行作業に `git worktree` を使ってよい。同じbranchを複数worktree／agentへ割り当てず、base ref・worktree path・branch・remote・担当を記録する
+- 混在worktreeでは`git add .`／`git add -A`を使わず、exact paths／hunksとcached diffを確認する
 - `develop` へのpushではGitHub Pagesを更新しない
 - `main` へ `docs/**`、`website/**`、またはPages workflowの変更がpushされた場合だけ自動デプロイする
 - リリース前の資料は `develop`、公開する資料は `main` で管理する
